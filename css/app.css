@@ -1,0 +1,77 @@
+/* Reset */
+html, body {
+	width: 100%; 
+	height: 100%; 
+	margin: 0; 
+	padding: 0;
+}
+
+
+/* Custom behaviors */
+html * {
+	-webkit-user-select: none; 
+	box-sizing: border-box;
+}
+
+#header  {
+	width: 100%;
+	height: 100px;
+}
+
+#container{
+	width: 100%;
+}
+
+#appLogo{
+	float: left;
+	width: 250px;
+}
+
+#appTitle{
+	float: right;
+	width: 350px;
+
+}
+
+#leaveCal{
+	width: 100%;
+}
+
+.sel-arrow{
+
+}
+
+#sel-prev {
+	width: 0; 
+	height: 0; 
+	border-top: 60px solid transparent;
+	border-bottom: 60px solid transparent; 
+	
+	border-right:60px solid blue; 
+}
+
+#sel-next {
+	width: 0; 
+	height: 0; 
+	border-top: 60px solid transparent;
+	border-bottom: 60px solid transparent;
+	
+	border-left: 60px solid blue;
+}
+
+
+#month_row{
+
+}
+
+.calendar-header{
+
+}
+
+.days_row{
+
+}
+#colors{
+	background-color: #01865d;  /* green */
+	color: #00185a; /*blue */
+}

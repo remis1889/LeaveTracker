@@ -12,10 +12,12 @@
 		
 		"show": true,
 		"icon": "icon.png",
-		"min_width": 480,
-		"min_height": 600,
-		"width": 480,
-		"height": 600
+		
+		"width": 1360,
+		"height": 760
+	
+		//"toolbar" : false
+		//"fullscreen": true
 
 	}
 }

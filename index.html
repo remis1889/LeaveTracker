@@ -2,10 +2,14 @@
 <html>
 <head>
 <title>Leave Tracker</title>
+
 <link rel="stylesheet" href="css/app.css"></link>
 
 <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="vendor/pouchdb-5.0.0.min.js"></script>
+
+<script type="text/javascript" src="js/calendar.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 <!--
 <script type="text/javascript" src="js/main.js"></script>
@@ -16,7 +20,22 @@
 
 </head>
 <body>
+	<div id="header">
+		<span id="appLogo"><img src="qp_logo.png"></span>
+		<span id="appTitle"><h1>Employee Leave Tracker</h1></span>
+	</div>
 	<div id="container">
+		
+		
+			
+		<input type="hidden" name="this_month" id="cmonth" value="">
+		<input type="hidden" name="this_year" id="cyear" value="">
+
+		
+		<div id="leaveCal">
+			
+		</div>
+		
 
 		
 	</div>
