@@ -18,10 +18,6 @@ html * {
 	height: 100px;
 }
 
-#container{
-	width: 100%;
-}
-
 #appLogo{
 	float: left;
 	width: 250px;

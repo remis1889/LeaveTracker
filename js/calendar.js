@@ -12,6 +12,22 @@ cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 // this is the current date
 cal_current_date = new Date(); 
 
+function change(month,year) {
+	if(month < 0) {
+		month = 11;
+		year = year - 1;
+	}
+	else if(month > 11){
+		month = 0;
+		year = year + 1;
+	}
+	
+	var newCal = new Calendar(month, year);
+	newCal.generateHTML();
+	document.getElementById('leaveCal').innerHTML = newCal.getHTML();
+
+}
+
 function Calendar(month, year) {
   this.month = (isNaN(month) || month == null) ? cal_current_date.getMonth() : month;
   this.year  = (isNaN(year) || year == null) ? cal_current_date.getFullYear() : year;
@@ -23,10 +39,22 @@ Calendar.prototype.generateHTML = function(){
   // get first day of month
   var firstDay = new Date(this.year, this.month, 1);
   var startingDay = firstDay.getDay();
+
+  // switch to next year after December
+
+    if(this.month + 1 > 11){
+		nextMonth = 0;
+		nextYear = this.year + 1;
+	}
+	else{
+		nextMonth = this.month + 1;
+		nextYear = this.year;
+	}
+  console.log(nextMonth,nextYear);
   
   // find number of days in month
   var monthLength = cal_days_in_month[this.month];
-  var nextMonthLength = cal_days_in_month[this.month + 1];
+  var nextMonthLength = cal_days_in_month[nextMonth];
 
   
   // compensate for leap year
@@ -38,39 +66,42 @@ Calendar.prototype.generateHTML = function(){
   
   // do the header
   var monthName = cal_months_labels[this.month]
-  var nextMonthName = cal_months_labels[this.month + 1]
+  var nextMonthName = cal_months_labels[nextMonth]
 
   var html = '<div class = "sel-arrow">';
-  html += '<div id="sel-prev"></div></div>';
-  html += '<div id="month_row"><span id="month_' + this.month + '">';
-  html += monthName + "&nbsp;" + this.year + '</span><span id="month_' + (this.month + 1) + '">';
-  html += nextMonthName + "&nbsp;" + this.year+'</span></div>';
-  html += '<div class="calendar-header">';
+  html += '<a href="javascript:void(0);" onclick="return change('+(this.month-1)+',' + this.year + ');"><div id="sel-prev"></div></a></div>';
+  html += '<div class="cal-table"> <table><tr id="month_row">';
+  html += '<th colspan="'+ monthLength +'">' + monthName + "&nbsp;" + this.year + '</th>';
+  html += '<th colspan="'+ nextMonthLength +'">' + nextMonthName + "&nbsp;" + nextYear +'</th></tr>';
+  html += '<tr class="calendar-header">';
+  
+
   for(var i = startingDay, j = 0; j < (monthLength + nextMonthLength); i++, j++ ){
     
-    html += '<span class="calendar-header-day">';
+    html += '<td class="calendar-header-day">';
     html += cal_days_labels[i];
-    html += '</span>';
+    html += '</td>';
 
     if(i == 6){
     	i = -1;
     }
   }
-  html += '</div>';
+  html += '</tr>';
 
   // fill in the days
 
-  html += '<div class = "days-row">'
+  html += '<tr class = "days-row">'
 
   for(var i = 1; i <= monthLength; i++) {
-  	html += '<span class="calendar-day">' + i + '</span>';
+  	html += '<td class="calendar-day">' + i + '</td>';
   }
 
   for(var i = 1; i <= nextMonthLength; i++) {
-  	html += '<span class="calendar-day">' + i + '</span>';
+  	html += '<td class="calendar-day">' + i + '</td>';
   }
 
-  html += '</div></div><div class = "sel-arrow"><div id="sel-next"></div></div>';
+  html += '</tr></table></div></div><div class = "sel-arrow">';
+  html += '<a href="javascript:void(0);" onclick="return change('+(nextMonth)+',' + nextYear + ');"><div id="sel-next"></div></a></div>';
 
   this.html = html;
 
@@ -81,15 +112,14 @@ Calendar.prototype.generateHTML = function(){
 
 Calendar.prototype.getHTML = function() {
   return this.html;
-}                     
+}   
+
 var cal = new Calendar();
 
 cal.generateHTML();
 
 window.onload  =   function() {
     document.getElementById('leaveCal').innerHTML = cal.getHTML();
-    document.getElementById('cmonth').value = cal.month;
-    document.getElementById('cyear').value = cal.year;
 }
 
 
