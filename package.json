@@ -14,10 +14,10 @@
 		"icon": "icon.png",
 		
 		"width": 1360,
-		"height": 760
+		"height": 760,
 	
-		//"toolbar" : false
-		//"fullscreen": true
+		"toolbar" : true,
+		"frame": true
 
 	}
 }

@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="css/app.css"></link>
 
 <script type="text/javascript" src="vendor/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="vendor/pouchdb-5.0.0.min.js"></script>
 
 <script type="text/javascript" src="js/calendar.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/db.js"></script>
 
 <!--
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/todos.js"></script>
+
+
 <script type="text/javascript" src="js/nativeui.js"></script>
 <script type="text/javascript" src="js/helpers.js"></script> 
 -->
@@ -25,7 +25,9 @@
 		<span id="appTitle"><h1>Employee Leave Tracker</h1></span>
 	</div>
 	<div id="leaveCal">
-			
+		<div class = "sel-arrow" id="prev"></div>
+		<div id="cal-table"> </div>
+		<div class = "sel-arrow" id="next"></div>			
 	</div>
 
 </body>
