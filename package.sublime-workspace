@@ -3,6 +3,58 @@
 	{
 		"selected_items":
 		[
+			[
+				"emp",
+				"emp_id"
+			],
+			[
+				"leave",
+				"leave_type"
+			],
+			[
+				"next",
+				"nextMonth"
+			],
+			[
+				"ne",
+				"nextYear"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"month",
+				"monthLength"
+			],
+			[
+				"st",
+				"startingDay"
+			],
+			[
+				"first",
+				"firstDay"
+			],
+			[
+				"mo",
+				"monthName"
+			],
+			[
+				"c",
+				"cal"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"bg",
+				"background-color"
+			]
 		]
 	},
 	"buffers":
@@ -32,10 +84,18 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/add_emp",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/js/main.js",
 		"/C/Users/Remi/Documents/GitHub/LeaveTracker/css/app.css",
-		"/C/Users/Remi/AppData/Roaming/Sublime Text 2/Packages/User/HTML.sublime-settings",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/js/data.js",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/js/db.js",
 		"/C/Users/Remi/Documents/GitHub/LeaveTracker/index.html",
 		"/C/Users/Remi/Documents/GitHub/LeaveTracker/package.json",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/db/employees.json",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/js/calendar.js",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/vendor/node-calendar.js",
+		"/C/Users/Remi/Documents/GitHub/LeaveTracker/css/ref.css",
+		"/C/Users/Remi/AppData/Roaming/Sublime Text 2/Packages/User/HTML.sublime-settings",
 		"/C/Users/Remi/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Remi/Documents/GitHub/HelloWorld NW.js/index.html",
 		"/C/Users/Remi/AppData/Roaming/Sublime Text 2/Packages/User/nw-js.sublime-build",
@@ -57,14 +117,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"alert",
+			"firstMenuItem",
+			"\n  ",
+			"();\">",
+			"monthname",
+			"calendarmonth",
+			"jan",
 			"html"
 		],
-		"highlight": true,
+		"highlight": false,
 		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"console.log"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -86,7 +154,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
@@ -117,7 +185,7 @@
 	},
 	"replace":
 	{
-		"height": 0.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -42,6 +42,14 @@ function change(month,year) {
   document.getElementById('prev').innerHTML = '<a href="javascript:void(0);" onclick="return change('+(cal.month-1)+',' + cal.year + ');"><div id="sel-prev"></div></a>';
   document.getElementById('next').innerHTML = '<a href="javascript:void(0);" onclick="return change('+(nextCal.month)+',' + nextCal.year + ');"><div id="sel-next"></div></a>';
 
+  display_schedule(month,year);
+  display_schedule(nextMonth,nextYear);
+}
+
+function display_schedule(month,year)
+{
+  var slist = scheduledb.schedule.find({fyear : year});
+  
 }
 
 function Calendar(month, year) {
@@ -66,7 +74,7 @@ Calendar.prototype.generateHTML = function(){
 
 // month header
 
-  var html = '<table><tr id="month_row">';
+  var html = '<table id="cal-'+ this.month +'-'+this.year+' class="cal-block"><tr id="month_row">';
   html += '<th colspan="'+ monthLength +'">' + monthName + "&nbsp;" + this.year + '</th></tr>';
   html += '<tr class="calendar-header">';
 
@@ -99,6 +107,6 @@ Calendar.prototype.getHTML = function() {
 }   
 
 
-$( document ).ready(function() {
+$(document ).ready(function() {
   change(current_date.getMonth(),current_date.getFullYear());  
 });

@@ -29,12 +29,19 @@ html * {
 
 }
 
-#leaveCal{
+#container{
 	width: 100%;
 }
 
 .sel-arrow{
+	width: 80px;
+	float: left;
 
+}
+
+#cal-table{
+	float: left;
+	width: auto;
 }
 
 #sel-prev {

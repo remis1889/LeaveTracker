@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leave Tracker</title>
+
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/db.js"></script>
+<script src="js/common.js"></script>
+<script src="js/schedule.js"></script>
+
+
+</head>
+<body>
+	<div id="header"></div>
+	<div id="container">
+		<div>
+			Enter Staff Number : 
+			<input type="text" name="emp_id" id="emp_id" maxlength=5 placeholder="Staff Number">
+			<input type="button" value="Go" onclick="return emp_details();">
+		</div>
+		<div id="emp-details" style="display:none">
+			<div><span id="label">Staff No. : </span><span id="sno"></span></div>
+			<div><span id="label">Name : </span><span id="name"></span></div>
+			<div><span id="label">Category : </span><span id="cat"></span></div>
+			<div><span id="label">Leave Entitled : </span><span id="total"></span></div>
+			<div><span id="label">Leave Taken : </span><span id="taken"></span></div>
+			<div><span id="label">Leave Available : </span><span id="balance"></span></div>
+			<div><span id="label">Leave Scheduled : </span><span id="schedule"></span></div>
+			<div>Leave History</div>
+			<table border="1" id="leave-history">
+				<tr>
+					<th>#</th>
+					<th>From</th>
+					<th>To</th>
+					<th>No of Days</th>
+					<th>Status</th>
+					<th>Date Added</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

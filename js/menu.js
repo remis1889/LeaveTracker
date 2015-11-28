@@ -13,12 +13,7 @@ windowMenu.append(firstMenuItem);
 firstMenuItem.submenu.append(new gui.MenuItem({
 	label:'New Employee', 
 	click : function () {
-          gui.Window.open('add_emp.html', {
-          	position: 'center',
-          	width: 640,
-          	height: 480,
-          	focus: true
-          });
+          window.location.href = 'add_emp.html';
      }
   })
 );
@@ -26,13 +21,8 @@ firstMenuItem.submenu.append(new gui.MenuItem({
 firstMenuItem.submenu.append(new gui.MenuItem({
 	label:'Schedule Leave', 
 	click : function () {
-          gui.Window.open('schedule.html', {
-          	position: 'center',
-          	width: 640,
-          	height: 480,
-          	focus: true
-          });
-      }
+          window.location.href = 'schedule.html';
+    	}
   })
 );
 
@@ -57,16 +47,18 @@ windowMenu.append(secondMenuItem);
 secondMenuItem.submenu.append(new gui.MenuItem({
 	label:'View Employees', 
 	click : function () {
-          gui.Window.open('view_emp.html', {
-          	position: 'center',
-          	width: 640,
-          	height: 480,
-          	focus: true
-          });
+          window.location.href = 'view_emp.html';
       }
   })
 );
 
+secondMenuItem.submenu.append(new gui.MenuItem({
+  label:'View Schedule', 
+  click : function () {
+          window.location.href = 'index.html';
+      }
+  })
+);
 
 secondMenuItem.submenu.append(new gui.MenuItem({
 	label:'Export Schedule', 
@@ -76,6 +68,42 @@ secondMenuItem.submenu.append(new gui.MenuItem({
           	width: 640,
           	height: 480,
           	focus: true
+          });
+      }
+  })
+);
+currentWindow.menu = windowMenu;
+
+var thirdMenuItem = new gui.MenuItem({
+label:'Settings',
+submenu: new gui.Menu()
+});
+windowMenu.append(thirdMenuItem);
+// Add submenu items
+thirdMenuItem.submenu.append(new gui.MenuItem({
+  label:'Employee Category', 
+  click : function () {
+          window.location.href = '88.html';
+      }
+  })
+);
+
+thirdMenuItem.submenu.append(new gui.MenuItem({
+  label:'Set Annual Leave', 
+  click : function () {
+          window.location.href = 'emp_leave.html';
+      }
+  })
+);
+
+thirdMenuItem.submenu.append(new gui.MenuItem({
+  label:'Leave Status', 
+  click : function () {
+          gui.Window.open('set_status.html', {
+            position: 'center',
+            width: 640,
+            height: 480,
+            focus: true
           });
       }
   })
