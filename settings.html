@@ -4,38 +4,92 @@
 <title>Leave Tracker</title>
 
 <link rel="stylesheet" href="css/app.css"></link>
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/db.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/settings.js"></script>
+<script type="text/javascript" src="js/employee.js"></script>
+<script type="text/javascript" src="js/schedule.js"></script>
 
 </head>
 <body>
 	<div id="header"></div>
 	<div id="container">
-		<table id="set-category" border="1">
-		    <tr>
-	            <th rowspan="2">#</th>
-	            <th rowspan="2">Category</th>
-				<th rowspan="2">Annual Leave</th>
-	            <th colspan="2">Actions</th>
-	        </tr>
-	        <tr>
-	            <th>Edit</th>
-	            <th>Delete</th>
-	        </tr>
-		</table>
-		<table id="set-status" border="1">
-		    <tr>
-	            <th rowspan="2">#</th>
-	            <th rowspan="2">Status</th>
-				<th colspan="2">Actions</th>
-	        </tr>
-	        <tr>
-	            <th>Edit</th>
-	            <th>Delete</th>
-	        </tr>
-		</table>
+		<div id="emp-details" style="display:none">
+			<div><span id="label">Staff No. : </span><span id="sno"></span></div>
+			<div><span id="label">Name : </span><span id="name"></span></div>
+			<div><span id="label">Category : </span><span id="cat"></span></div>
+			<div><span id="label">Leave Entitled : </span><span id="total"></span></div>
+			<div><span id="label">Leave Taken : </span><span id="taken"></span></div>
+			<div><span id="label">Leave Scheduled : </span><span id="schedule"></span></div>
+			<div><span id="label">Leave Available : </span><span id="balance"></span></div>
+			<div>Leave History</div>
+			<table border="1" id="leave-history">
+				<tr>
+					<th>#</th>
+					<th>From</th>
+					<th>To</th>
+					<th>No of Days</th>
+					<th>Status</th>
+					<th>Date Added</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</table>
+		</div>
+		<div id="employee">
+			<div id="emp-cat"></div>
+			<table id="emp-view" border="1">
+			    <tr>
+		            <th rowspan="3">Staff No.</th>
+		            <th rowspan="3">Name</th>
+					<th rowspan="3">Category</th>
+					<th colspan="6">Leave Details</th>
+		            <th colspan="2">Actions</th>
+		        </tr>
+		        <tr>
+		        	<th colspan="4">Entitled </th>
+					<th rowspan="2">Taken</th>
+					<th rowspan="2">Available</th>
+					<th rowspan="2">Edit</th>
+		            <th rowspan="2">Delete</th>
+		        </tr>
+		        <tr>
+		        	<th>General</th>
+		        	<th>C-Off</th>
+		        	<th>Carry</th>
+		        	<th>Total</th>
+		        </tr>
+			</table>
+		</div>
+		<div id="others">	
+			<table id="set-category" border="1">
+			    <tr>
+		            <th rowspan="2">#</th>
+		            <th rowspan="2">Category</th>
+					<th rowspan="2">Annual Leave</th>
+		            <th colspan="2">Actions</th>
+		        </tr>
+		        <tr>
+		            <th>Edit</th>
+		            <th>Delete</th>
+		        </tr>
+			</table>
+			<table id="set-status" border="1">
+			    <tr>
+		            <th rowspan="2">#</th>
+		            <th rowspan="2">Status</th>
+					<th colspan="2">Actions</th>
+		        </tr>
+		        <tr>
+		            <th>Edit</th>
+		            <th>Delete</th>
+		        </tr>
+			</table>
+		</div>
 	</div>
 
 </body>

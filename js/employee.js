@@ -4,8 +4,8 @@ $(document ).ready(function() {
 
 	if(elist.length>0){
 		for (var i = 0; i < elist.length; i++) {
-			category = get_category(elist[i].category).name;
-			general = +get_category(elist[i].category).leave;
+			category = get_categ_stat(elist[i].category,1).name;
+			general = +get_categ_stat(elist[i].category,1).leave;
 			coff = +elist[i].coff;
 			carry = +elist[i].carry;
 			total = general + coff + carry;
@@ -14,7 +14,8 @@ $(document ).ready(function() {
 
 			row_list += "<tr id='e_"+elist[i]._id+"'>";
 			row_list += "<td id='eid_"+elist[i]._id+"'>"+elist[i].sn+"</td>";
-			row_list += "<td id='ename_"+elist[i]._id+"'>"+elist[i].ename+"</td>";
+			row_list += "<td id='ename_"+elist[i]._id+"'>";
+			row_list += "<a href='javascript:void(0);' id='en_"+elist[i]._id+"' onclick='return emp_details("+elist[i].sn+");'>"+elist[i].ename+"</a></td>";
 			row_list += "<td id='cat_"+elist[i]._id+"'>"+category+"</td>";
 			row_list += "<td id='leave_"+elist[i]._id+"'>"+general+"</td>";
 			row_list += "<td id='coff_"+elist[i]._id+"'>"+coff+"</td>";
@@ -35,29 +36,14 @@ $(document ).ready(function() {
 	$('#emp-view').append(row_list);	
 });
 
-function select_category(select){
-	var clist = categdb.category.find();
-	var cat = '<select name="category" id="select_category">';
-	for(var i=0; i<clist.length; i++)
-	{
-		if(clist[i].name==select)
-			cat += '<option value="'+clist[i]._id+'" selected>'+clist[i].name+'</option>';
-		else
-			cat += '<option value="'+clist[i]._id+'">'+clist[i].name+'</option>';      
-	}
-	cat += '</td>';
-
-	return cat;
-}
-
 function add_form(){
 
 	var emp_form = '<td id="err">&nbsp;</td>';
 	emp_form += '<td><input type="text" maxlength=5 id="emp_id" placeholder="Staff No."></td>';
 	emp_form += '<td><input type="text" id="emp_name" placeholder="Name"></td>';
 	emp_form += '<td>Category '+select_category('')+'</td>';
-	emp_form += '<td><input type="text" id="emp_carry" placeholder="Carry"></td>';
-	emp_form += '<td><input type="button" value="Add New Employee" id="add_emp" onclick="return validate();"></td>';
+	emp_form += '<td><input type="text" id="emp_carry" maxlength=1 placeholder="Carry"></td>';
+	emp_form += '<td><input type="button" value="Add" id="add_emp" onclick="return validate();"></td>';
     emp_form += '<td><input type="button" onclick="location.reload();" value="Cancel"></td>';
 	document.getElementById("add_more").innerHTML = emp_form;	         	
 }
@@ -68,10 +54,10 @@ function add_emp(emp_id, emp_name, category, carry){
 		sn : emp_id,
 	    ename : emp_name,
 	    category : category,
-	    coff : 0,
+	    coff : "0",
 	    carry : carry,
-	    taken : 0
-	    
+	    taken : "0",
+	    schedules : []
 	}
 	empdb.employee.save(emp);
 	//document.getElementById('cerr').innerHTML = "Category added successfully!";
@@ -117,7 +103,7 @@ function validate(){
 	var carry = document.getElementById('emp_carry').value.trim();
 	
 	 if(carry=='' || !isNumeric(carry))
-		carry = 0;
+		carry = "0";
 
 	if(emp_name=='')
 		document.getElementById('err').innerHTML = "Enter employee name!";	
@@ -129,7 +115,7 @@ function validate(){
 
 function update(eid){
 	var emp_id = document.getElementById('eid_'+eid).innerHTML;
-	var emp_name = document.getElementById('ename_'+eid).innerHTML;
+	var emp_name = document.getElementById('en_'+eid).innerHTML;
 	var category = document.getElementById('cat_'+eid).innerHTML;
 	var coff = document.getElementById('coff_'+eid).innerHTML;
 	
@@ -143,6 +129,6 @@ function update(eid){
 }
 
 function change_leave(cat,id){
-	c = get_category(cat);
+	c = get_categ_stat(cat,1);
 	document.getElementById('leave_'+id).innerHTML = c.leave;
 }

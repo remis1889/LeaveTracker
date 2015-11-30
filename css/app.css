@@ -78,3 +78,13 @@ html * {
 	background-color: #01865d;  /* green */
 	color: #00185a; /*blue */
 }
+
+#employee {
+	width: 100%;
+	float: left;
+}
+
+#others {
+	float: left;
+	width: 100%;
+}

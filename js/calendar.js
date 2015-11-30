@@ -48,8 +48,23 @@ function change(month,year) {
 
 function display_schedule(month,year)
 {
-  var slist = scheduledb.schedule.find({fyear : year});
+  var slist = empdb.employee.find({fyear : year, fmonth : month});
+  console.log(year, month,slist);
   
+}
+
+function get_emplist(cid)
+{
+  var elist = empdb.employee.find({category : cid});
+  if(elist.length!=0){
+    var result = {};
+    result['emp_id'] = elist[0].sn;
+    result['name'] = elist[0].ename;
+    result['schedules'] = elist[0].schedules;
+    return result;
+  }
+  else
+    return false;
 }
 
 function Calendar(month, year) {
@@ -98,7 +113,14 @@ Calendar.prototype.generateHTML = function(){
   	html += '<td class="calendar-day">' + i + '</td>';
   }
 
-  html += '</tr></table>';
+  html += '</tr>';
+
+  cid = document.getElementById('select_category').value;
+
+  var emp_list = get_emplist(cid);
+  console.log(emp_list);
+
+  html +='</table>';
   this.html = html;
 }
 
@@ -108,5 +130,8 @@ Calendar.prototype.getHTML = function() {
 
 
 $(document ).ready(function() {
+  document.getElementById('select-cat').innerHTML = select_category("");
+  //f = 'get_emplist(this.value)';
+  //document.getElementById('select_category').setAttribute('onchange', f); 
   change(current_date.getMonth(),current_date.getFullYear());  
 });
